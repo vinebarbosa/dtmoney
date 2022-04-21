@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import IncomeImg from "../../assets/income.svg";
 import OutcomeImg from "../../assets/outcome.svg";
 import TotalImg from "../../assets/total.svg";
@@ -8,30 +7,24 @@ import { Container } from "./styles";
 
 export function Summary() {
   const { transactions } = useTransactions();
-  const [values, setValues] = useState({
-    incomes: 0,
-    outcomes: 0,
-  });
 
-  useEffect(() => {
-    if (transactions.length) {
-      let incomes = 0;
-      let outcomes = 0;
-
-      transactions.forEach((transaction) => {
-        if (transaction.type === "deposit") {
-          incomes += Number(transaction.amount);
-        } else {
-          outcomes += Number(transaction.amount);
-        }
-      });
-
-      setValues({
-        incomes,
-        outcomes,
-      });
+  const summary = transactions.reduce(
+    (accumulator, transaction) => {
+      if (transaction.type === "deposit") {
+        accumulator.incomes += Number(transaction.amount);
+        accumulator.total += Number(transaction.amount);
+      } else {
+        accumulator.outcomes += Number(transaction.amount);
+        accumulator.total -= Number(transaction.amount);
+      }
+      return accumulator;
+    },
+    {
+      incomes: 0,
+      outcomes: 0,
+      total: 0,
     }
-  }, [transactions]);
+  );
 
   return (
     <Container>
@@ -44,7 +37,7 @@ export function Summary() {
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
-          }).format(values.incomes)}
+          }).format(summary.incomes)}
         </strong>
       </div>
       <div>
@@ -56,7 +49,7 @@ export function Summary() {
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
-          }).format(values.outcomes)}
+          }).format(summary.outcomes)}
         </strong>
       </div>
       <div className="highlight-background">
@@ -68,7 +61,7 @@ export function Summary() {
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
-          }).format(values.incomes - values.outcomes)}
+          }).format(summary.total)}
         </strong>
       </div>
     </Container>
