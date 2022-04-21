@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import IncomeImg from "../../assets/income.svg";
 import OutcomeImg from "../../assets/outcome.svg";
 import TotalImg from "../../assets/total.svg";
-import { useTransactions } from "../../hooks/useTransactions/intex";
+import { useTransactions } from "../../hooks/useTransactions";
 
 import { Container } from "./styles";
 

@@ -6,7 +6,7 @@ import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
 
 import { Container, TrasactionTypeContainer, RadioBox } from "./styles";
-import { useTransactions } from "../../hooks/useTransactions/intex";
+import { useTransactions } from "../../hooks/useTransactions";
 
 interface NewTransactionModalProps {
   isOpen: boolean;
