@@ -25,4 +25,4 @@ Disponível em [https://dtmoney-vinebarbosa.vercel.app](https://dtmoney-vinebarb
 - Criação de contextos e hooks
 
 </br>
-Made with love by Vine
+Made with love by Vine :purple_heart:
