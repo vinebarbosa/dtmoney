@@ -85,7 +85,7 @@ export function NewTransactionModal({
 
         <input
           type="number"
-          placeholder="Preço"
+          placeholder="Valor"
           value={amount}
           onChange={handleAmountChange}
         />
