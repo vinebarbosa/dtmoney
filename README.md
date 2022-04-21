@@ -2,7 +2,7 @@
 
 ## Sobre o Projeto
 
-Este projeto desenvolvido durante o Capítuo II da trilha de React JS do Rocketseat Ignite. Ele consiste em uma dashboard onde é possivel cadastrar e ver transações feitas.
+Este projeto desenvolvido durante o Capítulo II da trilha de React JS do Rocketseat Ignite. Ele consiste em uma dashboard onde é possivel cadastrar e ver transações feitas.
 
 ## Links Úteis
 
