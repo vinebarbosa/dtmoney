@@ -76,4 +76,17 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
     justify-content: center;
   }
+  .react-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    border: none;
+    background: none;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(80%);
+    }
+  }
 `

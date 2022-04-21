@@ -1,5 +1,10 @@
 import Modal from "react-modal";
-import { Container } from "./styles";
+
+import closeImg from "../../assets/close.svg";
+import incomeImg from "../../assets/income.svg";
+import outcomeImg from "../../assets/outcome.svg";
+
+import { Container, TrasactionTypeContainer } from "./styles";
 
 interface NewTransactionModalProps {
   isOpen: boolean;
@@ -13,19 +18,43 @@ export function NewTransactionModal({
   onRequestClose,
 }: NewTransactionModalProps) {
   return (
-    <Container>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={onRequestClose}
-        className="modal-content"
-        overlayClassName="modal-overlay"
-      >
-        <h1>Cadastrar Transação</h1>
-        <input type="text" placeholder="Titulo" />
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      className="modal-content"
+      overlayClassName="modal-overlay"
+    >
+      <Container>
+        <button
+          type="button"
+          onClick={onRequestClose}
+          className="react-modal-close"
+        >
+          <img src={closeImg} alt="Fechar modal" />
+        </button>
+
+        <h1>Nova Transação</h1>
+
+        <input placeholder="Titulo" />
+
         <input type="number" placeholder="Preço" />
-        <input type="text" placeholder="Categoria" />
+
+        <TrasactionTypeContainer>
+          <button type="button" onClick={() => {}}>
+            <img src={incomeImg} alt="Entrada" />
+            <span>Entrada</span>
+          </button>
+
+          <button type="button" onClick={() => {}}>
+            <img src={outcomeImg} alt="Saída" />
+            <span>Saída</span>
+          </button>
+        </TrasactionTypeContainer>
+
+        <input placeholder="Categoria" />
+
         <button type="submit">Cadastrar</button>
-      </Modal>
-    </Container>
+      </Container>
+    </Modal>
   );
 }
