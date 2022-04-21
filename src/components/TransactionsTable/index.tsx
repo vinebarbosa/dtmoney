@@ -1,12 +1,12 @@
 import { useTransactions } from "../../hooks/useTransactions";
-import { Container } from "./styles";
+import { Container, NotTransactionsFoundMessage } from "./styles";
 
 export function TransactionsTable() {
   const { transactions } = useTransactions();
 
   return (
     <Container>
-      {transactions.length > 0 && (
+      {transactions.length > 0 ? (
         <table>
           <thead>
             <tr>
@@ -36,6 +36,10 @@ export function TransactionsTable() {
             ))}
           </tbody>
         </table>
+      ) : (
+        <NotTransactionsFoundMessage>
+          Nenhuma transação cadastrada
+        </NotTransactionsFoundMessage>
       )}
     </Container>
   );

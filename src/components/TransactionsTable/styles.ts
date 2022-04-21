@@ -36,3 +36,12 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const NotTransactionsFoundMessage = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+  font-size: 1rem;
+  color: var(--text-body);
+`
